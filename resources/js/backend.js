@@ -1,5 +1,12 @@
+require('bootstrap.native/dist/bootstrap-native-v4.min.js');
+
 let backendSidebar = document.querySelector('#backend-sidebar');
 let userMenu = document.querySelector('#user-menu');
+let hamburgerNavBtn = document.querySelector('.hamburger-nav');
+
+// Toggle Hamburger Nav Btn
+hamburgerNavBtn.addEventListener('click', () => { hamburgerNavBtn.classList.toggle('is-active') });
+hamburgerNavBtn.addEventListener('click', (e) => e.stopPropagation());
 
 // Stop Progation For Sidebar
 backendSidebar.addEventListener('click', (e) => e.stopPropagation());
@@ -23,6 +30,9 @@ document.querySelector('#user-dropdown').addEventListener('click', (e) => {
 	if (backendSidebar.classList.contains('visible')) {
 		backendSidebar.classList.toggle('visible');
 	}
+	if (hamburgerNavBtn.classList.contains('is-active')) {
+		hamburgerNavBtn.classList.toggle('is-active');
+	}
 	userMenu.classList.toggle('visible');
 });
 
@@ -34,10 +44,12 @@ document.querySelector('body').addEventListener('click', (e) => {
 	if (userMenu.classList.contains('visible')) {
 		userMenu.classList.toggle('visible');
 	}
+	if (hamburgerNavBtn.classList.contains('is-active')) {
+		hamburgerNavBtn.classList.toggle('is-active');
+	}
 });
 
 // Dropdown Sidebar
-
 let sidebarDropdowns = document.querySelectorAll('.sidebar-dropdown');
 for (let i = 0; i < sidebarDropdowns.length; i++) {
 	sidebarDropdowns[i].addEventListener('click', () => {
@@ -51,24 +63,14 @@ for (let i = 0; i < sidebarDropdowns.length; i++) {
 	});
 }
 
-// let sidebarDropdowns = document.querySelectorAll('.sidebar-dropdown');
-// for (let i = 0; i < sidebarDropdowns.length; i++) {
-// 	sidebarDropdowns[i].addEventListener('click', () => {
-// 		sidebarDropdowns[i].classList.toggle('open');
-// 	});
-// }
+// Notifications
+import Swal from 'sweetalert2';
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
 
-
-
-
-
-
-
-
-
-// let backendMain = document.querySelector('#backend-main');
-// if(backendMain.parentElement.classList.contains('visible')){
-// 	console.log('visible');
-// } else {
-// 	console.log('No Ative');
-// }
+window.Swal = Swal;
+window.Toast = Toast;
