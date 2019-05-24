@@ -89,6 +89,24 @@ body::-webkit-scrollbar-thumb {
   background: #A0AEC0;
 }
 
+.card-dashboard .card-icon {
+  position: absolute;
+  top: -0.8rem;
+  left: 1rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  transition: top 0.2s ease-in-out;
+}
+
+.card-dashboard:hover > .card-icon {
+  top: -1.2rem;
+}
+
 #backend-login {
   height: 100%;
   display: flex;
