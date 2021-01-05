@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.8.1",
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "bootstrap.native": "^2.0.26",
         "bootswatch": "^4.3.1",
         "cross-env": "^5.1",
